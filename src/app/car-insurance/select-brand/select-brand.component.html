@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 border rounded-2">
+      <div class="mb-3 mt-4">
+        <label for="id1" class="form-label labelClass">Select Brand</label>
+        <input type="text" class="form-control ms-2 brand-input" id="id1" placeholder="Search Make" [(ngModel)]="insuranceData.brandName">
+        <div class="row ms-1 mt-3">
+          <div class="col-md-5 m-1 cursor-pointer" id="brand-name" *ngFor="let car of selectBrand" (click)="selectBrandName(car.brandName)">
+            <img [src]="car.imgPath" alt="carImage" class="mx-1" height="25" width="25">
+            <span class="mx-1">{{car.brandName}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 border">
+      <!-- <app-insurance-details [insuranceData]="carInsuranceModal"></app-insurance-details> -->
+      <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+    </div>
+
+  </div>
+</div>
+

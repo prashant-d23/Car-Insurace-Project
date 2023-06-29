@@ -1,0 +1,148 @@
+.home-container{
+  height: 100%;
+}
+
+.banner{
+  height: 91%;
+  background-image: url('../../assets/banner-2.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+}
+
+
+
+// -------For buttons----------
+
+.logo {
+background-color: white;
+ }
+
+ .logo:hover {
+  background: rgb(255, 228, 74);
+ }
+
+ .logo:active {
+  border: 1px solid gold;
+ }
+
+
+ .logo::after {
+ }
+
+ .form-control {
+  border: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#forms{
+  width: 65vw;
+}
+
+
+ul li a {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 500;
+}
+ul li a:hover{
+  color: rgb(170, 0, 255);
+
+}
+
+
+// ---------navbar----------
+
+.navbar ul{
+  display: flex;
+  height: 30px;
+}
+li{
+  list-style: none;
+}
+ul li a{
+  display: inline-block;
+  margin : 7px 0 0 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.brand{
+font-weight: bold;
+margin-left: 3vw;
+}
+
+
+// loader
+
+.loader {
+  background: #a0d2eb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: absolute;
+  left: 5vw;
+}
+
+.car {
+	&__body {
+		animation: shake 0.2s ease-in-out infinite alternate;
+	}
+
+	&__line {
+		transform-origin: center right;
+		stroke-dasharray: 22;
+		animation: line 0.7s ease-in-out infinite;
+		animation-fill-mode: both;
+
+		&--top {
+			animation-delay: 0s;
+		}
+
+		&--middle {
+			animation-delay: 0.2s;
+		}
+
+		&--bottom {
+			animation-delay: 0.4s;
+		}
+	}
+}
+
+@keyframes shake {
+	0% {
+		transform: translateY(-1%);
+	}
+	100% {
+		transform: translateY(3%);
+	}
+}
+
+@keyframes line {
+	0% {
+		stroke-dashoffset: 22;
+	}
+
+	25% {
+		stroke-dashoffset: 22;
+	}
+
+	50% {
+		stroke-dashoffset: 0;
+	}
+
+	51% {
+		stroke-dashoffset: 0;
+	}
+
+	80% {
+		stroke-dashoffset: -22;
+	}
+
+	100% {
+		stroke-dashoffset: -22;
+	}
+}
