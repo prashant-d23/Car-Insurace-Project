@@ -1,19 +1,35 @@
-<!-- <div class="container w-75 mt-1">
+ <div class="container w-75 mt-1">
   <div class="row">
-     <div class="col-md-6 border rounded-start">
-        <label for="id1" class="form-label labelClass ms-1">Select Variant</label>
-        <input type="text" class="form-control modal-input ms-1" id="id1" placeholder="Search Make" [(ngModel)]="insuranceData.modelName">
+
+     <div class="col-md-6 border-top rounded-start">
+        <label for="id1" class="form-label labelClass ms-1 fs-6 fw-bold">Which 4-Wheeler do you own?</label>
+        <input type="text" class="form-control modal-input ms-1" id="id1" placeholder="Search Variant" [(ngModel)]="insuranceData.variantName">
 
         <div class="row mt-2 ms-1">
-            <div class="col-md-10 border m-1 rounded cursor-pointer" *ngFor="let item of modalList" (click)="selectModal(item.concat)">
-                <span class="mx-1 modal-name fw-semibold" style="font-size: 14px;">{{item.concat}}</span>
-            </div>
+          <div class="col-12">
+            <ul class="nav nav-underlin">
+              <li class="nav-item cursor-pointer" *ngFor="let type of variantTypes">
+                <a class="nav-link" [ngClass]="selectedVariant === type ? 'active' : 'text-muted'" (click)="setVariantType(type)" aria-current="page">{{type}}</a>
+              </li>
+            </ul>
+            <ul class="list-group list-group-flush mt-2 cursor-pointer variant-list">
+              <li class="list-group-item" *ngFor="let variant of variantList | filter : selectedVariant" (click)="setVariantName(variant)">{{variant["Variant Name"]}}</li>
+            </ul>
+          </div>
         </div>
-     </div>
-     <div class="col-md-6 border rounded-end">
-        <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
-    </div>
-  </div>
-</div> -->
+      </div>
 
-<h2>variant</h2>
+      <div class="col-md-6 border rounded-start">
+        <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+

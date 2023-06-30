@@ -8,6 +8,8 @@ import { InsuranceDetailsComponent } from './insurance-details/insurance-details
 import { FormsModule } from '@angular/forms';
 import { SelectModalComponent } from './select-modal/select-modal.component';
 import { SelectVariantComponent } from './select-variant/select-variant.component';
+import { SharedModule } from '../shared/shared.module';
+import { RegistrationDetailsComponent } from './registration-details/registration-details.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { SelectVariantComponent } from './select-variant/select-variant.componen
     SelectBrandComponent,
     InsuranceDetailsComponent,
     SelectModalComponent,
-    SelectVariantComponent
+    SelectVariantComponent,
+    RegistrationDetailsComponent
   ],
   imports: [
     CommonModule,
     CarInsuranceRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class CarInsuranceModule { }

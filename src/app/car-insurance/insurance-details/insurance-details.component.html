@@ -28,7 +28,10 @@
       <span class="text-muted mx-2"> Car Name </span> : <span class="text-muted"> {{insuranceData.brandName}} </span> <span class="mx-2" routerLink="/car-insurance"><i class="bi bi-pencil-square editBtn"></i></span>
     </div>
     <div class="col-12">
-       <span class="text-muted mx-2"> Model Name </span> : <span class="text-muted"> {{insuranceData.modelName}} </span>
+       <span class="text-muted mx-2"> Model Name </span> : <span class="text-muted"> {{insuranceData.modelName}} </span> <span class="mx-2" [routerLink]="['/car-insurance/select-modal',insuranceData.brandName]"><i class="bi bi-pencil-square editBtn"></i></span>
+     </div>
+    <div class="col-12">
+       <span class="text-muted mx-2"> Variant Name </span> : <span class="text-muted"> {{insuranceData.variantName}} </span> <span class="mx-2" [routerLink]="['/car-insurance/select-variant',insuranceData.modelName]"><i class="bi bi-pencil-square editBtn"></i></span>
      </div>
   </div>
 </div>

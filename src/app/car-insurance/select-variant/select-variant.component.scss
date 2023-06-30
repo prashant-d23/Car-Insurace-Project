@@ -1,0 +1,16 @@
+.active{
+  border-bottom: 4px solid #fb0;
+  color: black;
+  font-weight: bold;
+  border-bottom-color: #fb0 !important;
+}
+
+.list-group-flush>.list-group-item {
+  border-width: 0 0 var(--bs-list-group-border-width);
+  padding-left: 0px;
+}
+
+.variant-list{
+  height: 400px;
+  overflow-y: auto;
+}
