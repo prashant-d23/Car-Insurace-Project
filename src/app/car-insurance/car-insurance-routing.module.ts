@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: SelectBrandComponent },
       { path: 'select-modal/:brandName', component: SelectModalComponent },
-      { path: 'select-variant', component: SelectVariantComponent },
+      { path: 'select-variant/:modalName', component: SelectVariantComponent },
     ],
   },
 ];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 import { InsuranceService } from 'src/app/core/services/insurance.service';
 
@@ -10,7 +10,7 @@ import { InsuranceService } from 'src/app/core/services/insurance.service';
 })
 export class SelectModalComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, private http:HttpService, private carInsService:InsuranceService){
+  constructor(private route:ActivatedRoute, private http:HttpService, private carInsService:InsuranceService, private router:Router){
     this.selectedBrand = this.route.snapshot.paramMap.get('brandName');
     this.insuranceData = this.carInsService.carInsuranceModal;
     console.log(this.selectedBrand)
@@ -39,5 +39,7 @@ export class SelectModalComponent implements OnInit {
 
   selectModal(modal:any){
     this.insuranceData.modelName = modal;
+    this.router.navigate(['/car-insurance/select-variant',modal]);
+
   }
 }
