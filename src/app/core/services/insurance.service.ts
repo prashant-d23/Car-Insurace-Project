@@ -10,6 +10,9 @@ export class InsuranceService {
     "brandName":"",
     "modelName":"",
     "variantName":"",
+    "year" : '',
+    "month" : '',
+    "city" : ''
   }
 
 
@@ -24,4 +27,7 @@ export class CarInsurance{
   brandName!: string;
   modelName!:string;
   variantName!:string;
+  year!:string;
+  month!:string;
+  city!:string;
 }
