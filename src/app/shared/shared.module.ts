@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 
 @NgModule({
   declarations: [
-    FilterPipe
+    FilterPipe,
+    SearchPipe
   ],
   exports : [
-    FilterPipe
+    FilterPipe,
+    SearchPipe
   ],
   imports: [
     CommonModule

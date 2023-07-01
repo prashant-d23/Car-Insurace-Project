@@ -13,6 +13,7 @@ export class RegistrationDetailsComponent implements OnInit {
   insuranceData:any;
   selectedYear:number | null = null;
   selectedMonth:string | null = null;
+  searchTerm:string = '';
   years:number[] = [];
   months:string[] = [
     'January' , 'February' , 'March' , 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
@@ -42,5 +43,27 @@ export class RegistrationDetailsComponent implements OnInit {
   }
   toggleform(){
     this.isVisible = true;
+  }
+
+  toggleDropdowns(){
+    this.regForm.enabled ? this.regForm.disable() : this.regForm.enable();
+    if(this.regForm.disabled){
+      const currentDate = new Date();
+      const year = currentDate.getFullYear().toString();
+      const month = this.getMonthName(currentDate.getMonth());
+      this.regForm.get('year')?.patchValue(year)
+      this.regForm.get('month')?.patchValue(month);
+    }else{
+      this.regForm.reset();
+    }
+  }
+
+  getMonthName(month:any){
+    return this.months[month];
+  }
+
+  sendCity(city:any){
+    console.log(city);
+    this.insuranceData.city = city;
   }
 }
