@@ -34,9 +34,28 @@ button{
   color: black;
   font-weight: bold;
 }
+// .continue{
+//   margin-left: 70px;
+//   background: #fb0;
+//   color: black;
+//   font-weight: bold;
+
+// }
 .container{
   margin-top: 25px !important;
 }
 select{
   width: 190px;
+}
+// button[_ngcontent-mcc-c11] {
+//   margin-left: 70px !important;
+//   background: #fb0 !important;
+//   color: black !important;
+//   font-weight: bold;
+//   width: 200px !important;
+// }
+#search-icon{
+  position: absolute;
+  margin: -33px 0px 0px 495px;
+  font-size: 18px;
 }

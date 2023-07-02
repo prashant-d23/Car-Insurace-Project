@@ -1,0 +1,47 @@
+.checkbox{
+  padding: 9px;
+  margin-right: 21px;
+}
+
+.scroll{
+  height: 800px;
+  width: 400px;
+  overflow-y: auto;
+}
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+}
+.price{
+margin-right: 100px;
+}
+.premium{
+  border: 1px solid black;
+  width: 100px;
+}
+.card{
+  width: 500px;
+  margin-left: 80px !important;
+}
+.slider{
+  margin-top: 20px;
+  width: 500px;
+  margin-left: 80px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #fb0;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 25px;
+}
+
+ input[type="range"]::-webkit-slider-runnable-track {
+      background-color: #c8c9c8;
+      height: 10px;
+      border-radius: 0px;
+    }
+

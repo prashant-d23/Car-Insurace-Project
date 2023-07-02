@@ -11,6 +11,7 @@ import { SelectVariantComponent } from './select-variant/select-variant.componen
 import { SharedModule } from '../shared/shared.module';
 import { RegistrationDetailsComponent } from './registration-details/registration-details.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
 
 
 
@@ -22,6 +23,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     SelectModalComponent,
     SelectVariantComponent,
     RegistrationDetailsComponent,
+    ChoosePlanComponent,
   ],
   imports: [
     CommonModule,

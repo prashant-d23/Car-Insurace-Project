@@ -6,13 +6,24 @@ import { Injectable } from '@angular/core';
 export class InsuranceService {
 
 
-  carInsuranceModal:CarInsurance = {
+  carInsuranceModal:any = {
     "brandName":"",
     "modelName":"",
     "variantName":"",
     "year" : '',
     "month" : '',
-    "city" : ''
+    "city" : '',
+    "selectedPlan":{
+      "planInfo":{},
+      "costCoverage":{
+       "netPremium":0,
+       "thirdPartyPremium":0,
+       "ownDamagePremium":0,
+       "addOnsPremium":0,
+       "ncbDiscount":0,
+      }
+   }
+
   }
 
 

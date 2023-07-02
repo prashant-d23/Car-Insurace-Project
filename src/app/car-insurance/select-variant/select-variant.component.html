@@ -7,7 +7,7 @@
 
         <div class="row mt-2 ms-1">
           <div class="col-12">
-            <ul class="nav nav-underlin">
+            <ul class="nav nav-underline">
               <li class="nav-item cursor-pointer" *ngFor="let type of variantTypes">
                 <a class="nav-link" [ngClass]="selectedVariant === type ? 'active' : 'text-muted'" (click)="setVariantType(type)" aria-current="page">{{type}}</a>
               </li>
