@@ -15,14 +15,23 @@
             <div class="mb-3">
               <label for="id1" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="id1" formControlName="fullName">
+              <div class="row" *ngIf="fullName?.invalid && fullName?.touched">
+                <div class="invalid-feedback d-block" *ngIf="fullName?.errors?.['required']">This field is required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="id2" class="form-label">Pincode</label>
               <input type="text" class="form-control" id="id2" formControlName="pinCode">
+              <div class="row" *ngIf="pinCode?.invalid && pinCode?.touched">
+                <div class="invalid-feedback d-block" *ngIf="pinCode?.errors?.['required']">This field is required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="id3" class="form-label">Email Address</label>
               <input type="text" class="form-control" id="id3" formControlName="email">
+              <div class="row" *ngIf="email?.invalid && email?.touched">
+                <div class="invalid-feedback d-block" *ngIf="email?.errors?.['required']">This field is required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="id4" class="form-label">Mobile No.</label>
@@ -30,7 +39,7 @@
             </div>
 
             <button type="button" class="btn btn-warning m-2"
-              (click)="ownerDetailsForm = !ownerDetailsForm">Continue</button>
+              (click)="ownerDetailsForm = !ownerDetailsForm" >Continue</button>
 
           </div>
 
@@ -46,10 +55,16 @@
             <div class="mb-3">
               <label for="id11" class="form-label">Registration Number</label>
               <input type="text" class="form-control" id="id11" formControlName="regNumber">
+              <div class="row" *ngIf="regNumber?.invalid && regNumber?.touched">
+                <div class="invalid-feedback d-block" *ngIf="regNumber?.errors?.['required']">This field is required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="id12" class="form-label">Chasis Number</label>
               <input type="text" class="form-control" id="id12" formControlName="chasisNumber">
+              <div class="row" *ngIf="chasisNumber?.invalid && chasisNumber?.touched">
+                <div class="invalid-feedback d-block" *ngIf="chasisNumber?.errors?.['required']">This field is required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label for="id2" class="form-label">Engine Number</label>
@@ -68,7 +83,7 @@
               <label for="id14" class="form-label">Bank/Loan Provider </label>
               <input type="text" class="form-control" id="id14" formControlName="bankLoanProvider">
             </div>
-            <button type="submit" class="btn btn-warning m-2">Submit</button>
+            <button type="submit" class="btn btn-warning m-2" [disabled]="personalDetails.invalid">Submit</button>
           </div>
         </form>
       </div>

@@ -24,7 +24,7 @@ export class PersonalDetailsComponent implements OnInit {
     this.personalDetails = this.fb.group({
       "owner-details" : this.fb.group({
         "fullName" : ['',Validators.required],
-        "pinCode" : ['',],
+        "pinCode" : ['',Validators.required],
         "email" : ['',Validators.required],
         "mobile" : ['',Validators.required],
         "sendUpdatesViaWhatsap" : [false],
@@ -32,7 +32,7 @@ export class PersonalDetailsComponent implements OnInit {
         "nomineeReltionship":['']
       }),
       "car-details" : this.fb.group({
-        "regNumber" : [''],
+        "regNumber" : ['',Validators.required],
         "chasisNumber" : ['',[Validators.required]],
         "engineNumber" : ['',[]],
         "isCarLoadTaken" : [false],
@@ -42,6 +42,28 @@ export class PersonalDetailsComponent implements OnInit {
 
 
   }
+
+  get fullName(){
+    return this.personalDetails.get('owner-details.fullName');
+  };
+
+  get pinCode(){
+    return this.personalDetails.get('owner-details.pinCode')
+  }
+  get email(){
+    return this.personalDetails.get('owner-details.email')
+  }
+  get phone(){
+    return this.personalDetails.get('owner-details.phone')
+  }
+
+  get chasisNumber(){
+    return this.personalDetails.get('car-details.chasisNumber')
+  }
+  get regNumber(){
+    return this.personalDetails.get('car-details.regNumber')
+  }
+
 
   toggleForm(){
     this.ownerDetailsForm = true;
