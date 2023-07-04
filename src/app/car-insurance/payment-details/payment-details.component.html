@@ -1,0 +1,8 @@
+
+    <div class="shadow-lg border rounded py-3 snack-bar">
+      <div class="total px-4 d-flex justify-content-between">
+        <span class="fw-semibold fs-5 mt-2">&#8377;{{totalPremiumReceived | async}}</span>
+        <button class="btn btn-warning px-3 fw-bold fs-6"  routerLink="/car-insurance/payment" (click)="payNow()">Pay</button>
+      </div>
+    </div>
+

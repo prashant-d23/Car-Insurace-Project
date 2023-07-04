@@ -8,17 +8,26 @@
       <div>
       </div>
     </div>
-   <div class="slider border p-3">
-    <p class="fs-6 fw-semibold">Insured Value (IDV)</p>
-    <label for="customRange2" class="form-label"></label>
-    <input type="range" class="form-range" min="50" max="100" id="customRange2">
-   </div>
+  <div class="row">
+    <div class="slider border p-3 col-md-6">
+      <label for="customRange1" class="form-label fw-bold">Insured Value(IDV)</label>
+      <p class="fw-bold">₹{{insuranceData.selectedPlan.selectedIdv}}</p>
+      <input type="range" class="form-range" id="customRange1" [(ngModel)]="insuranceData.selectedPlan.selectedIdv" [min]="selectedPlanInfo?.vehicle?.vehicleIDV?.minimumIdv" [max]="selectedPlanInfo?.vehicle?.vehicleIDV?.maximumIdv">
+      <p class="d-flex justify-content-between">
+        <span class="text-muted">₹{{selectedPlanInfo?.vehicle?.vehicleIDV?.minimumIdv}}</span>
+        <span class="text-muted">₹{{selectedPlanInfo?.vehicle?.vehicleIDV?.maximumIdv}}</span>
+      </p>
+     </div>
+      <div class="col-md-6 ms-5">
+        <img src="../../../assets/blue-car.jpg" class="mt-4 ms-4" alt="car" height="150">
+      </div>
+  </div>
   </div>
   <div class="row w-75 mt-3 d-flex">
     <div class="col-md-6 border scroll">
       <p class="fs-6 my-3 ms-2 text-muted">Add Extra coverage (Valid for 1 year only)</p>
-      <div class="form-check mt-4" *ngFor="let coverage of addOnCoverageList[0]?.subCovers">
-        <input class="form-check-input checkbox" type="checkbox" value="" id="flexCheckDefault">
+      <div class="form-check mt-4" *ngFor="let coverage of addOnCoverageList[0]?.subCovers; let i = index">
+        <input class="form-check-input checkbox" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="coverage.selection" (ngModelChange)="caculateAddOnCoverage(coverage.selection,i)">
         <label class="form-check-label mb-3 fs-6" for="flexCheckDefault">
           {{coverage.name}}
         </label>
@@ -28,41 +37,59 @@
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-6 ms-5" *ngIf="selectedPlan != 'ThirdPartyCover'">
         <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
-        <div class="border rounded p-3 w-75 ms-5 mt-3" style="background-color: #ecebeb; height: 308px;">
+        <div class="border rounded p-3 w-75 mt-3 custom">
           <h3 class="fw-bold">Cost Breakup</h3>
           <div class="d-flex">
-            <div class=" w-75">Third Party Premium</div>
-            <div class=" flex-shrink-1">1000</div>
+            <div class=" w-75">Own Damage Premium</div>
+            <div class=" flex-shrink-1 ms-3">&#8377;{{insuranceData.selectedPlan.costCoverage.ownDamagePremium}}</div>
           </div>
           <hr>
           <div class="d-flex">
-            <div class=" w-75">Own Damage Premium</div>
-            <div class=" flex-shrink-1">1000</div>
+            <div class="w-75">Third Party Premium</div>
+            <div class="flex-shrink-1 ms-3">&#8377;{{insuranceData.selectedPlan.costCoverage.thirdPartyPremium}}</div>
+          </div>
+          <hr>
+          <div class="d-flex">
+            <div class="w-75" *ngIf="selectedPlan != 'ThirdPartyCover'">Pay As You Drive Discount</div>
+            <div class="flex-shrink-1 ms-3">&#8377;0</div>
           </div>
           <hr>
           <div class="d-flex">
             <div class=" w-75">Add-Ons Premium</div>
-            <div class=" flex-shrink-1">1000</div>
+            <div class=" flex-shrink-1 ms-3">&#8377;{{insuranceData.selectedPlan.costCoverage.addOnsPremium}}</div>
           </div>
           <hr>
-          <div class="d-flex">
-            <div class=" w-75">Net Premium</div>
-            <div class=" flex-shrink-1">1000</div>
+          <div class="d-flex" *ngIf="selectedPlan != 'ThirdPartyCover'">
+            <div class="w-75" *ngIf="selectedPlan != 'ThirdPartyCover'">NCB Discount</div>
+            <div class="flex-shrink-1 ms-3">- &#8377;{{insuranceData.selectedPlan.costCoverage.ncbDiscount}}</div>
+          </div>
+          <hr>
+          <div class="d-flex" style="font-size: 17px;">
+            <div class="w-75 fw-bold">Net Premium</div>
+            <div class=" flex-shrink-1 ms-3 fw-bold">&#8377;{{insuranceData.selectedPlan.costCoverage.netPremium}}</div>
           </div>
           <hr>
           <div class="float-end">
            <div>This price is excluding 18% GST</div>
           </div>
-
-
-
         </div>
 
     </div>
 
 
   </div>
+  <div class="shadow-lg border rounded py-3 snack-bar">
+    <div class="total px-4">
+      <span class="fw-semibold fs-5 mt-2">&#8377;{{totalPremiumReceived | async}}</span>
+      <button class="btn btn-warning px-3 fw-bold fs-6" routerLink="/car-insurance/personal-details">Continue</button>
+    </div>
+  </div>
+
+<div class="badge1">
+  <span class="badge" style="background-color: #0bb86b;">Recommended</span>
+</div>
+
 </div>
 

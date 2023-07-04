@@ -12,6 +12,11 @@ import { SharedModule } from '../shared/shared.module';
 import { RegistrationDetailsComponent } from './registration-details/registration-details.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+
 
 
 
@@ -24,6 +29,8 @@ import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
     SelectVariantComponent,
     RegistrationDetailsComponent,
     ChoosePlanComponent,
+    PersonalDetailsComponent,
+    PaymentDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +38,10 @@ import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ]
 })
 export class CarInsuranceModule { }
