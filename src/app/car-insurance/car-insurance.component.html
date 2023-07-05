@@ -1,24 +1,26 @@
-<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #a0d2eb;">
+<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #e4f6ff;">
 <div class="container-fluid">
   <ul>
     <li class="cursor-pointer" routerLink="/home"><h2 class="brand">AutoShield</h2></li>
-    <li><a>1.Basic Details</a></li>
-    <li><a>2.Choose Plan</a></li>
-    <li><a>3.Personal Details</a></li>
-    <li><a>4.Payment</a></li>
+    <li class="nav-item" routerLink="/car-insurance" routerLinkActive="active">
+        <a class="nav-link cursor-pointer">1. Basic Details</a>
+      </li>
+      <li class="nav-item" routerLink="/car-insurance/choose-plan" routerLinkActive="active">
+        <a class="nav-link cursor-pointer">2. Choose Plan</a>
+      </li>
+      <li class="nav-item" routerLink="/car-insurance/personal-details" routerLinkActive="active">
+        <a class="nav-link cursor-pointer">3. Personal Details</a>
+      </li>
+      <li class="nav-item" routerLink="/car-insurance/payment" routerLinkActive="active">
+        <a class="nav-link cursor-pointer">4. Payment</a>
+      </li>
     <li><a>1800-258-3454</a></li>
   </ul>
 </div>
 </nav>
+<div class="progress" role="progressbar" aria-label="Warning example" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar text-bg-warning" [style.width]="progress + '%'"></div>
+</div>
 
-<!-- <app-select-brand></app-select-brand> -->
 
 <router-outlet></router-outlet>
-
-
-<!-- <div class="container w-50 py-3 mb-3 border rounded shadow sticky-bottom" *ngIf="router.url === '/car-insurance/choose-plan'">
-  <div class="total-pay">
-     <span class="fw-bold fs-6">₹{{totalPremiumReceived | async}}</span>
-     <button class="btn btn-warning" routerLink="/car-insurance/personal-details">Continue</button>
-  </div>
-</div> -->
