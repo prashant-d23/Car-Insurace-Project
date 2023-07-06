@@ -10,6 +10,7 @@ import { InsuranceService } from 'src/app/core/services/insurance.service';
 })
 export class SelectModalComponent implements OnInit {
 
+  searchTerm:string = ''
   constructor(private route:ActivatedRoute, private http:HttpService, private carInsService:InsuranceService, private router:Router){
     this.selectedBrand = this.route.snapshot.paramMap.get('brandName');
     this.insuranceData = this.carInsService.carInsuranceModal;

@@ -2,10 +2,10 @@
   <div class="row">
      <div class="col-md-6 border rounded-start">
         <label for="id1" class="form-label labelClass ms-1 fw-bold mt-3">Select Modal</label>
-        <input type="text" class="form-control modal-input ms-1" id="id1" placeholder="Search Modal" [(ngModel)]="insuranceData.modelName">
+        <input type="text" class="form-control modal-input ms-1" id="id1" placeholder="Search Modal" [(ngModel)]="searchTerm">
 
         <div class="row mt-2 ms-1">
-            <div class="col-md-10 border m-1 rounded cursor-pointer" *ngFor="let item of modalList" (click)="selectModal(item.concat)">
+            <div class="col-md-10 border m-1 rounded cursor-pointer" *ngFor="let item of modalList | search : searchTerm" (click)="selectModal(item.concat)">
                 <span class="mx-1 modal-name fw-semibold" style="font-size: 14px;">{{item.concat}}</span>
             </div>
         </div>

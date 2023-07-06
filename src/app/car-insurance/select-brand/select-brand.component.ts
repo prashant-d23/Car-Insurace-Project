@@ -9,6 +9,8 @@ import { CarInsurance, InsuranceService} from 'src/app/core/services/insurance.s
 })
 export class SelectBrandComponent {
 
+  searchTerm:string = '';
+
   selectBrand:any = [
     {
       "imgPath" : "../../../assets/tata-logo.png",
@@ -40,5 +42,9 @@ selectBrandName(name:string){
   this.insuranceData.brandName = name;
 console.log(name)
 this.router.navigate(['/car-insurance/select-modal',name]);
+}
+
+onSearchChange(evt:string){
+  this.searchTerm = evt;
 }
 }
