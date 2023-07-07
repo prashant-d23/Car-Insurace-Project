@@ -53,6 +53,8 @@ export class RegistrationDetailsComponent implements OnInit {
       const month = this.getMonthName(currentDate.getMonth());
       this.regForm.get('year')?.patchValue(year)
       this.regForm.get('month')?.patchValue(month);
+      this.insuranceData.registrationDetails.year = year;
+      this.insuranceData.registrationDetails.month = month;
     }else{
       this.regForm.reset();
     }
@@ -64,6 +66,6 @@ export class RegistrationDetailsComponent implements OnInit {
 
   sendCity(city:any){
     console.log(city);
-    this.insuranceData.city = city;
+    this.insuranceData.registrationDetails.city = city;
   }
 }

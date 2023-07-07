@@ -39,7 +39,7 @@ constructor(private carInsService:InsuranceService, private router:Router){
 
 selectBrandName(name:string){
   // this.carInsuranceModal.brandName = info;
-  this.insuranceData.brandName = name;
+  this.insuranceData.registrationDetails.brandName = name;
 console.log(name)
 this.router.navigate(['/car-insurance/select-modal',name]);
 }

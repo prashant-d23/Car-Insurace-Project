@@ -11,12 +11,6 @@ export class InsuranceService {
   constructor() { }
 
   carInsuranceModal:any = {
-    "brandName":"",
-    "modelName":"",
-    "variantName":"",
-    "year" : '',
-    "month" : '',
-    "city" : '',
     "selectedPlan":{
       "planName":"",
       "planInfo":{},
@@ -29,20 +23,36 @@ export class InsuranceService {
        "ncbDiscount":0,
       }
    },
-   "registration-details":{
-
+   "registrationDetails":{
+    "brandName":"",
+    "modelName":"",
+    "variantName":"",
+    "year" : '',
+    "month" : '',
+    "city" : '',
    },
-   "personal-details":{
-     "owner-details":{
-
-     },
-     "car-details":{
-
-     }
-   }
+  //  "personal-details":{
+  //    "owner-details":{
+  //     "fullName" : "",
+  //     "pinCode" : '',
+  //     "email" : '',
+  //     "mobileNo":''
+  //    },
+  //    "car-details":{
+  //     "regNumber" : '',
+  //     "chasisNumber" : '',
+  //     "engineNumber" : '',
+  //    }
+  //  }
 
   }
 
+  // setPersonalDetails(formData: any) {
+  //   this.carInsuranceModal["personal-details"] = formData;
+  // }
+  // setCarDetails(carData:any){
+  //   this.carInsuranceModal['car-details'] = carData;
+  // }
 
    sendTotalPremium(amount:number){
      this.totalPremium.next(amount);

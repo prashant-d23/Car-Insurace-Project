@@ -55,6 +55,10 @@ payNow(){
   var rzp1 = new this.nativeWindow.Razorpay(this.options);
   rzp1.open();
 }
+
+
+
+
 }
 
 

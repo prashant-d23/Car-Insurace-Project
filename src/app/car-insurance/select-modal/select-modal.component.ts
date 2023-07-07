@@ -39,7 +39,7 @@ export class SelectModalComponent implements OnInit {
   }
 
   selectModal(modal:any){
-    this.insuranceData.modelName = modal;
+    this.insuranceData.registrationDetails.modelName = modal;
     this.router.navigate(['/car-insurance/select-variant',modal]);
 
   }

@@ -5,13 +5,13 @@
       <form [formGroup]="regForm">
         <div class="row">
           <div class="col-md-4 ms-5 me-4">
-            <select formControlName="year" class="form-select p-3" [(ngModel)]="insuranceData.year">
+            <select formControlName="year" class="form-select p-3" [(ngModel)]="insuranceData.registrationDetails.year">
               <option value="">Selecte Year</option>
               <option *ngFor="let year of years" [value]="year">{{year}}</option>
             </select>
           </div>
           <div class="col-md-4">
-            <select formControlName="month" class="form-select p-3" [(ngModel)]="insuranceData.month">
+            <select formControlName="month" class="form-select p-3" [(ngModel)]="insuranceData.registrationDetails.month">
               <option value="">Month</option>
               <option *ngFor="let month of months" [value]="month">{{month}}</option>
             </select>
