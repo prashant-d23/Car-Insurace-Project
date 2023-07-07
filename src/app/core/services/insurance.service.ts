@@ -31,28 +31,28 @@ export class InsuranceService {
     "month" : '',
     "city" : '',
    },
-  //  "personal-details":{
-  //    "owner-details":{
-  //     "fullName" : "",
-  //     "pinCode" : '',
-  //     "email" : '',
-  //     "mobileNo":''
-  //    },
-  //    "car-details":{
-  //     "regNumber" : '',
-  //     "chasisNumber" : '',
-  //     "engineNumber" : '',
-  //    }
-  //  }
+   "personal-details":{
+     "owner-details":{
+      "fullName" : "",
+      "pinCode" : '',
+      "email" : '',
+      "mobile":''
+     },
+     "car-details":{
+      "regNumber" : '',
+      "chasisNumber" : '',
+      "engineNumber" : '',
+     }
+   }
 
   }
 
-  // setPersonalDetails(formData: any) {
-  //   this.carInsuranceModal["personal-details"] = formData;
-  // }
-  // setCarDetails(carData:any){
-  //   this.carInsuranceModal['car-details'] = carData;
-  // }
+  setPersonalDetails(formData: any) {
+    this.carInsuranceModal["personal-details"] = formData;
+  }
+  setCarDetails(carData:any){
+    this.carInsuranceModal['car-details'] = carData;
+  }
 
    sendTotalPremium(amount:number){
      this.totalPremium.next(amount);
