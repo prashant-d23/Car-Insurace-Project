@@ -10,6 +10,7 @@ import { InsuranceService } from 'src/app/core/services/insurance.service';
 })
 export class SelectModalComponent implements OnInit {
 
+  searchTerm:string = ''
   constructor(private route:ActivatedRoute, private http:HttpService, private carInsService:InsuranceService, private router:Router){
     this.selectedBrand = this.route.snapshot.paramMap.get('brandName');
     this.insuranceData = this.carInsService.carInsuranceModal;
@@ -38,7 +39,7 @@ export class SelectModalComponent implements OnInit {
   }
 
   selectModal(modal:any){
-    this.insuranceData.modelName = modal;
+    this.insuranceData.registrationDetails.modelName = modal;
     this.router.navigate(['/car-insurance/select-variant',modal]);
 
   }

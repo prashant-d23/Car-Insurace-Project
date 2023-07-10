@@ -55,7 +55,7 @@ export class SelectVariantComponent implements OnInit {
   }
 
   setVariantName(obj:any){
-    this.insuranceData.variantName = obj['Variant Name'];
+    this.insuranceData.registrationDetails.variantName = obj['Variant Name'];
     this.router.navigate(['/car-insurance/registration-details'])
   }
 }
