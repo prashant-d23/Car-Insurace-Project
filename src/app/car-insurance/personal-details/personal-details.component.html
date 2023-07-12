@@ -84,6 +84,7 @@
               <input type="text" class="form-control" id="id14" formControlName="bankLoanProvider">
             </div>
             <button type="submit" class="btn btn-warning m-2" [disabled]="personalDetails.invalid">Submit</button>
+            <button type="button" (click)="generatePDF()" class="btn btn-danger m-2 ms-3">Get Receipt</button>
           </div>
         </form>
       </div>

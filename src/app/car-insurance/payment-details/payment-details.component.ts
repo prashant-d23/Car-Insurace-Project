@@ -35,58 +35,58 @@ export class PaymentDetailsComponent implements OnInit, OnDestroy {
    this.totalPremiumReceived = this.carInsSvc.totalPremiumObs$
   }
 
-  generatePDF() {
-    const documentDefinition: any = {
-      content: [
-        { text: 'Car Insurance Receipt', style: 'header', margin: [0, 0, 30, 0] },
+  // generatePDF() {
+  //   const documentDefinition: any = {
+  //     content: [
+  //       { text: 'Car Insurance Receipt', style: 'header', margin: [0, 0, 30, 0] },
 
-        { text: 'Registration Details:', style: 'subheader', margin: [0, 10] },
-        { text: `Brand Name: ${this.insuranceData.registrationDetails.brandName}`, style: 'label', margin: [0, 5] },
-        { text: `Model Name: ${this.insuranceData.registrationDetails.modelName}`, style: 'label', margin: [0, 5] },
-        { text: `Variant Name: ${this.insuranceData.registrationDetails.variantName}`, style: 'label', margin: [0, 5] },
-        { text: `Year: ${this.insuranceData.registrationDetails.year}`, style: 'label', margin: [0, 5] },
-        { text: `Month: ${this.insuranceData.registrationDetails.month}`, style: 'label', margin: [0, 5] },
-        { text: `City: ${this.insuranceData.registrationDetails.city}`, style: 'label', margin: [0, 5] },
+  //       { text: 'Registration Details:', style: 'subheader', margin: [0, 10] },
+  //       { text: `Brand Name: ${this.insuranceData.registrationDetails.brandName}`, style: 'label', margin: [0, 5] },
+  //       { text: `Model Name: ${this.insuranceData.registrationDetails.modelName}`, style: 'label', margin: [0, 5] },
+  //       { text: `Variant Name: ${this.insuranceData.registrationDetails.variantName}`, style: 'label', margin: [0, 5] },
+  //       { text: `Year: ${this.insuranceData.registrationDetails.year}`, style: 'label', margin: [0, 5] },
+  //       { text: `Month: ${this.insuranceData.registrationDetails.month}`, style: 'label', margin: [0, 5] },
+  //       { text: `City: ${this.insuranceData.registrationDetails.city}`, style: 'label', margin: [0, 5] },
 
-        { text: 'Selected Plan Details:', style: 'subheader', margin: [0, 10] },
-        { text: `Plan Name: ${this.insuranceData.selectedPlan.planName}`, style: 'label' },
+  //       { text: 'Selected Plan Details:', style: 'subheader', margin: [0, 10] },
+  //       { text: `Plan Name: ${this.insuranceData.selectedPlan.planName}`, style: 'label' },
 
-        { text: 'Personal Details', style: 'header', margin: [0, 10] },
-        { text: 'Owner Details:', style: 'subheader', margin: [0, 5] },
+  //       { text: 'Personal Details', style: 'header', margin: [0, 10] },
+  //       { text: 'Owner Details:', style: 'subheader', margin: [0, 5] },
 
-        { text: `Full Name: ${this.insuranceData['personal-details']['owner-details']['fullName']}`, style: 'label', margin: [0, 5] },
-        { text: `Pin Code: ${this.insuranceData['personal-details']['owner-details']['pinCode']}`, style: 'label', margin: [0, 5] },
-        { text: `Email Address: ${this.insuranceData['personal-details']['owner-details']['email']}`, style: 'label', margin: [0, 5] },
-        { text: `Mobile Number: ${this.insuranceData['personal-details']['owner-details']['mobile']}`, style: 'label', margin: [0, 5] },
+  //       { text: `Full Name: ${this.insuranceData['personal-details']['owner-details']['fullName']}`, style: 'label', margin: [0, 5] },
+  //       { text: `Pin Code: ${this.insuranceData['personal-details']['owner-details']['pinCode']}`, style: 'label', margin: [0, 5] },
+  //       { text: `Email Address: ${this.insuranceData['personal-details']['owner-details']['email']}`, style: 'label', margin: [0, 5] },
+  //       { text: `Mobile Number: ${this.insuranceData['personal-details']['owner-details']['mobile']}`, style: 'label', margin: [0, 5] },
 
 
-        { text: 'Car Details:', style: 'subheader', margin: [0, 10] },
-        {text : `Registration Number : ${this.insuranceData['personal-details']['car-details']['regNumber']}`, style: 'label', margin: [0, 5]},
-        {text : `Chasis Number : ${this.insuranceData['personal-details']['car-details']['chasisNumber']}`, style: 'label', margin: [0, 5]},
-        {text : `Engine Number : ${this.insuranceData['personal-details']['car-details']['engineNumber']}`, style: 'label', margin: [0, 5]}
-      ],
-      styles: {
-        header: {
-          fontSize: 20,
-          bold: true,
-          color: '#002D62',
-          alignment: 'center',
-        },
-        subheader: {
-          fontSize: 16,
-          bold: true,
-          margin: [0, 5]
-        },
-        label: {
-          bold: true,
-          color: 'grey'
-        },
+  //       { text: 'Car Details:', style: 'subheader', margin: [0, 10] },
+  //       {text : `Registration Number : ${this.insuranceData['personal-details']['car-details'].regNumber}`, style: 'label', margin: [0, 5]},
+  //       {text : `Chasis Number : ${this.insuranceData['personal-details']['car-details']['chasisNumber']}`, style: 'label', margin: [0, 5]},
+  //       {text : `Engine Number : ${this.insuranceData['personal-details']['car-details']['engineNumber']}`, style: 'label', margin: [0, 5]}
+  //     ],
+  //     styles: {
+  //       header: {
+  //         fontSize: 20,
+  //         bold: true,
+  //         color: '#002D62',
+  //         alignment: 'center',
+  //       },
+  //       subheader: {
+  //         fontSize: 16,
+  //         bold: true,
+  //         margin: [0, 5]
+  //       },
+  //       label: {
+  //         bold: true,
+  //         color: 'grey'
+  //       },
 
-      }
-    };
+  //     }
+  //   };
 
-    pdfMake.createPdf(documentDefinition).open(); // Opens the PDF in a new tab
-  }
+  //   // pdfMake.createPdf(documentDefinition).open(); // Opens the PDF in a new tab
+  // }
 
   options = {
     "key": "rzp_test_HrtPRFmceuxnzS", // Enter the Key ID generated from the Dashboard
@@ -114,7 +114,7 @@ payNow(){
 
   var rzp1 = new this.nativeWindow.Razorpay(this.options);
   rzp1.open();
-  this.generatePDF();
+  // this.generatePDF();
 }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as pdfMake from 'pdfmake/build/pdfmake';
 import { InsuranceService } from 'src/app/core/services/insurance.service';
 
 
@@ -72,6 +73,7 @@ export class PersonalDetailsComponent implements OnInit {
 
   submitForm(){
 console.log(this.personalDetails.value)
+
 const formData = {
   "owner-details": {
     "fullName": this.personalDetails.value["owner-details"]["fullName"],
@@ -91,7 +93,61 @@ const carDetails = {
 }
 
 this.carInsService.setCarDetails(carDetails);
+
+
   }
+
+generatePDF() {
+  const documentDefinition: any = {
+    content: [
+      { text: 'Car Insurance Receipt', style: 'header', margin: [0, 0, 30, 0] },
+
+      { text: 'Registration Details:', style: 'subheader', margin: [0, 10] },
+      { text: `Brand Name: ${this.insuranceData.registrationDetails.brandName}`, style: 'label' },
+      { text: `Model Name: ${this.insuranceData.registrationDetails.modelName}`, style: 'label' },
+      { text: `Variant Name: ${this.insuranceData.registrationDetails.variantName}`, style: 'label' },
+      { text: `Year: ${this.insuranceData.registrationDetails.year}`, style: 'label' },
+      { text: `Month: ${this.insuranceData.registrationDetails.month}`, style: 'label' },
+      { text: `City: ${this.insuranceData.registrationDetails.city}`, style: 'label' },
+
+      { text: 'Selected Plan Details:', style: 'subheader', margin: [0, 10] },
+      { text: `Plan Name: ${this.insuranceData.selectedPlan.planName}`, style: 'label' },
+
+      { text: 'Personal Details', style: 'header', margin: [0, 10] },
+      { text: 'Owner Details:', style: 'subheader', margin: [0, 5] },
+      { text: `Full Name: ${this.personalDetails.get('owner-details.fullName')?.value}`, style: 'label', margin: [0, 5] },
+      { text: `PinCode: ${this.personalDetails.get('owner-details.pinCode')?.value}`, style: 'label', margin: [0, 5] },
+      { text: `Email Address: ${this.personalDetails.get('owner-details.email')?.value}`, style: 'label', margin: [0, 5] },
+      { text: `Mobile Number: ${this.personalDetails.get('owner-details.mobile')?.value}`, style: 'label', margin: [0, 5] },
+
+      { text: 'Car Details:', style: 'subheader', margin: [0, 10] },
+      { text: `Registration Number: ${this.personalDetails.get('car-details.regNumber')?.value}`, style: 'label', margin: [0, 5] },
+      { text: `Chasis Number: ${this.personalDetails.get('car-details.chasisNumber')?.value}`, style: 'label', margin: [0, 5] },
+      { text: `Engine Number: ${this.personalDetails.get('car-details.engineNumber')?.value}`, style: 'label', margin: [0, 5] },
+    ],
+    styles: {
+      header: {
+        fontSize: 20,
+        bold: true,
+        color: '#002D62',
+        alignment: 'center',
+      },
+      subheader: {
+        fontSize: 16,
+        bold: true,
+        margin: [0, 5]
+      },
+      label: {
+        bold: true,
+        color: 'grey'
+      },
+
+    }
+  };
+
+  pdfMake.createPdf(documentDefinition).open(); // Opens the PDF in a new tab
+}
+
 
 }
 
